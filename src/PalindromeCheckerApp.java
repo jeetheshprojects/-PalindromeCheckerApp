@@ -1,24 +1,22 @@
 import java.util.*;
 
-class UseCase6PalindromeCheckerApp {
+class UseCase7PalindromeCheckerApp {
 
-    void uc6check(String input) {
+    void uc7check(String input) {
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for (char c : input.toCharArray()) {
-            queue.add(c);
-            stack.push(c);
+            deque.addLast(c);
         }
 
         boolean isPalindrome = true;
 
-        while (!queue.isEmpty()) {
-            char q = queue.remove();
-            char s = stack.pop();
+        while (deque.size() > 1) {
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
 
-            if (q != s) {
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
@@ -36,13 +34,13 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+
         System.out.print("Enter word: ");
         String wrd = sc.nextLine();
 
-        UseCase6PalindromeCheckerApp uc6 =
-                new UseCase6PalindromeCheckerApp();
+        UseCase7PalindromeCheckerApp uc7 =
+                new UseCase7PalindromeCheckerApp();
 
-        uc6.uc6check(wrd);
+        uc7.uc7check(wrd);
     }
 }
-
