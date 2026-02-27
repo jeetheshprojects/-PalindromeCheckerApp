@@ -33,6 +33,22 @@ class UseCase3PalindromeCheckerApp{
         System.out.println(c3);
     }
 }
+class UseCase4PalindromeCheckerApp{
+    void uc4check(String wor){
+        char[] chars=wor.toCharArray();
+        int start=0;
+        int end=chars.length-1;
+        boolean ispalindrome=false;
+        while(start<end){
+            if(chars[start]==chars[end]){
+                ispalindrome=true;
+                start++;
+                end--;
+            }
+        }
+        System.out.println(ispalindrome);
+    }
+}
 public class PalindromeCheckerApp {
     public static void main(String[]args){
         UseCase1PalindromeCheckerApp welcome=new UseCase1PalindromeCheckerApp();
@@ -42,5 +58,7 @@ public class PalindromeCheckerApp {
         UseCase3PalindromeCheckerApp uc3=new UseCase3PalindromeCheckerApp();
         String wrd="";
         uc3.uc3check(wrd);
+        UseCase4PalindromeCheckerApp uc4=new UseCase4PalindromeCheckerApp();
+        uc4.uc4check(wrd);
     }
 }
