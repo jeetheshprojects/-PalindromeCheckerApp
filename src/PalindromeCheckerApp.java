@@ -1,69 +1,44 @@
 import java.util.*;
-class UseCase1PalindromeCheckerApp{
-    void display_welcome(){
-        System.out.println("Welcome to the Palindrome Checker Management System");
 
-    }
-}
-class UseCase2PalindromeCheckerApp{
-    String text="madam";
-    void uc2check(){
-        char[] chararray =text.toCharArray();
-        boolean ch=false;
-        for(int i=0;i<=text.length()/2;i++){
-            for(int j=text.length()-1;j>=text.length()/2;j--){
-                if(chararray[i]==chararray[j]){
-                    ch=true;
-                }
+class UseCase5PalindromeCheckerApp {
+
+    void uc5check(String word) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : word.toCharArray()) {
+            stack.push(c);
+        }
+
+        boolean isPalindrome = true;
+
+        for (char c : word.toCharArray()) {
+            if (stack.pop() != c) {
+                isPalindrome = false;
+                break;
             }
         }
-        System.out.println(ch);
+
+        if (isPalindrome)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
     }
 }
-class UseCase3PalindromeCheckerApp{
-    void uc3check(String word){
-        String rev="";
-        boolean c3=false;
-        for(int i=word.length()-1;i>=0;i--){
-            rev=rev+word.charAt(i);
-        }
-        if(word==rev){
-            c3=true;
-        }
-        System.out.println(c3);
-    }
-}
-class UseCase4PalindromeCheckerApp{
-    void uc4check(String wor){
-        char[] chars=wor.toCharArray();
-        int start=0;
-        int end=chars.length-1;
-        boolean ispalindrome=false;
-        while(start<end){
-            if(chars[start]==chars[end]){
-                ispalindrome=true;
-                start++;
-                end--;
-            }
-        }
-        System.out.println(ispalindrome);
-    }
-}
+
 public class PalindromeCheckerApp {
-    public static void main(String[]args){
-        UseCase1PalindromeCheckerApp welcome=new UseCase1PalindromeCheckerApp();
-        welcome.display_welcome();
-        UseCase2PalindromeCheckerApp uc2=new UseCase2PalindromeCheckerApp();
-        uc2.uc2check();
-        UseCase3PalindromeCheckerApp uc3=new UseCase3PalindromeCheckerApp();
-        String wrd="";
-        uc3.uc3check(wrd);
-        UseCase4PalindromeCheckerApp uc4=new UseCase4PalindromeCheckerApp();
-        uc4.uc4check(wrd);
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter word: ");
+        String wrd = sc.nextLine();
+
+        UseCase5PalindromeCheckerApp uc5 =
+                new UseCase5PalindromeCheckerApp();
+
+        uc5.uc5check(wrd);
     }
 }
-
-
-
-
 
