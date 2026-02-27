@@ -44,7 +44,3 @@ public class PalindromeCheckerApp {
         uc3.uc3check(wrd);
     }
 }
-
-git add .
-git commit -m "UC3:string reverse"
-git push origin feature/UC3
