@@ -1,19 +1,24 @@
 import java.util.*;
 
-class UseCase5PalindromeCheckerApp {
+class UseCase6PalindromeCheckerApp {
 
-    void uc5check(String word) {
+    void uc6check(String input) {
 
+        Queue<Character> queue = new LinkedList<>();
         Stack<Character> stack = new Stack<>();
 
-        for (char c : word.toCharArray()) {
+        for (char c : input.toCharArray()) {
+            queue.add(c);
             stack.push(c);
         }
 
         boolean isPalindrome = true;
 
-        for (char c : word.toCharArray()) {
-            if (stack.pop() != c) {
+        while (!queue.isEmpty()) {
+            char q = queue.remove();
+            char s = stack.pop();
+
+            if (q != s) {
                 isPalindrome = false;
                 break;
             }
@@ -31,14 +36,13 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
         System.out.print("Enter word: ");
         String wrd = sc.nextLine();
 
-        UseCase5PalindromeCheckerApp uc5 =
-                new UseCase5PalindromeCheckerApp();
+        UseCase6PalindromeCheckerApp uc6 =
+                new UseCase6PalindromeCheckerApp();
 
-        uc5.uc5check(wrd);
+        uc6.uc6check(wrd);
     }
 }
 
