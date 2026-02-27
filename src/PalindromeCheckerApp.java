@@ -62,3 +62,10 @@ public class PalindromeCheckerApp {
         uc4.uc4check(wrd);
     }
 }
+
+git add .
+git commit -m "UC4: "
+git push origin feature/UC4
+
+
+
